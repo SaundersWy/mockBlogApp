@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-5 py-3 justify-content-center blog-container">
+    <h1>Now Editing <em class="ml-2"><%= blog.title %></em></h1>
+    
+    <div>
+        <form action="/blogs/<%= blog._id %>/?_method=PUT" method="POST">
+            <div class="form-group">
+                <label for="title">Blog Title</label>
+                <input class="form-control" class="form-control" type="text" name="blog[title]" id="title" required autocomplete="off" autofocus value="<%= blog.title %>">
+            </div>
+            <div class="form-group">
+                <label for="image">Image (Optional)</label>
+                <input class="form-control" type="text" name="blog[image]" id="image" value="<%= blog.image %>">
+            </div>
+            <div class="form-group">
+                <label for="content">Blog Content</label>
+                <textarea class="form-control" class="form-control" name="blog[content]" id="content" cols="30" rows="10" required><%= blog.content %></textarea>
+            </div>
+            <a href="/blogs/<%= blog._id %>" class="btn btn-warning">Go Back</a>
+            <button class="btn btn-primary">Update Blog</button>
+        </form>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>
